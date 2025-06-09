@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ricardo e Ariel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle, #ffdde1, #ee9ca7);
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-top: 20px;
+    }
+    #countdown {
+      font-size: 2em;
+      margin-top: 10px;
+    }
+    .carousel {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contando os dias, horas, minutos e segundos para nosso momento Abobrinha</h1>
+  <div id="countdown"></div>
+
+  <div class="carousel">
+    <img id="carouselImage" src="img1.jpg" alt="Imagem do casal"/>
+  </div>
+
+  <audio controls loop>
+    <source src="Say-You-Wont-Let-Go.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    const targetDate = new Date("2025-07-07T15:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance <= 0) {
+        countdownEl.innerHTML = "Chegou o grande momento!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Carousel
+    const images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg"];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      document.getElementById("carouselImage").src = images[index];
+    }, 4000);
+  </script>
+</body>
+</html>
