@@ -102,6 +102,7 @@
       flex-direction: column;
       align-items: center;
       min-width: 60px;
+      padding-left: 12px;
     }
 
     .countdown-value {
@@ -117,6 +118,14 @@
       color: var(--text-color);
       opacity: 0.8;
     }
+
+    #days{
+      padding-right: 2rem;
+    }
+    #dias{
+      padding-right: 2rem;
+    }
+
 
     /* Carrossel */
     .carousel-container {
@@ -172,7 +181,7 @@
     .audio-container {
       width: 90%;
       max-width: 300px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     audio {
@@ -182,7 +191,7 @@
     /* Rodapé */
     .footer {
       font-size: clamp(0.7rem, 3vw, 0.9rem);
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .heart {
@@ -220,7 +229,7 @@
     <div id="countdown">
       <div class="countdown-item">
         <span class="countdown-value" id="days">00</span>
-        <span class="countdown-label">Dias</span>
+        <span class="countdown-label" id="dias">Dias</span>
       </div>
       <div class="countdown-item">
         <span class="countdown-value" id="hours">00</span>
@@ -228,11 +237,11 @@
       </div>
       <div class="countdown-item">
         <span class="countdown-value" id="minutes">00</span>
-        <span class="countdown-label">Minutos</span>
+        <span class="countdown-label">Min</span>
       </div>
       <div class="countdown-item">
         <span class="countdown-value" id="seconds">00</span>
-        <span class="countdown-label">Segundos</span>
+        <span class="countdown-label">Seg</span>
       </div>
     </div>
 
